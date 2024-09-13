@@ -1,0 +1,38 @@
+<form #form="ngForm" (ngSubmit)="onFormSubmit(form)" class="row g-3">
+    <div class="col-auto">
+      <input type="text" name="name" required class="form-control" placeholder="Nombre" [(ngModel)]="show.name" ngModel>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="description" required class="form-control" placeholder="Descripcion" [(ngModel)]="show.description" ngModel>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="image" required class="form-control" placeholder="Imagen" [(ngModel)]="show.image" ngModel>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-3">{{ editing ? "Actualizar" : "Agregar" }}</button>
+    </div>
+    <div *ngIf="form.submitted && !form.valid" class="alert alert-danger" role="alert">
+      Datos incompletos
+    </div>
+</form>
+
+<!-- <form [formGroup]="form" (ngSubmit)="createElement()" class="row g-3">
+    <div class="col-auto">
+      <input type="text" formControlName="name" class="form-control" placeholder="Nombre">
+    </div>
+    <div class="col-auto">
+      <input type="text" formControlName="description" class="form-control" placeholder="Descripcion">
+    </div>
+    <div class="col-auto">
+      <input type="text" formControlName="image" class="form-control" placeholder="Imagen">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+    </div>
+    <div *ngIf="!form.valid" class="alert alert-danger" role="alert">
+      Datos incompletos
+    </div>
+  </form>
+  <div class="container d-flex">
+    <app-show-card *ngFor="let show of shows" [show]="show" (deleteCard)="deleteElement($event)"></app-show-card>
+  </div> -->
